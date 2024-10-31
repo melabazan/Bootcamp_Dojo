@@ -1,0 +1,108 @@
+import java.util.Scanner;
+
+public class MenuCalculadora {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int opcion;
+
+        do {
+            // Menu
+            System.out.println("Seleccione una opcion:");
+            System.out.println("1 - calcular el area de un circulo.");
+            System.out.println("2 - calcular el area de un cuadrado.");
+            System.out.println("3 - calcular el area de un triangulo.");
+            System.out.println("4 - calcular el factorial de un numero".);
+            System.out.println("5 - determinar si un numero es par o impar.");
+            System.out.println("6 - determinar si un numero es positivo, negativo o cero.");
+            System.out.println("7 - calcular la suma de todos los numeros desde 1 hasta un numero dado.");
+            System.out.println("8 - salir.");
+            System.out.print("Opcion: ");
+            opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    //Area circulo
+                    System.out.print("Ingrese el radio del circulo: ");
+                    double radio = scanner.nextDouble();
+                    double areaCirculo = Math.PI * Math.pow(radio, 2);
+                    System.out.println("area del circulo: " + areaCirculo);
+                    break;
+
+                case 2:
+                    //Area cuadrado
+                    System.out.print("Ingrese el lado del cuadrado: ");
+                    double lado = scanner.nextDouble();
+                    double areaCuadrado = Math.pow(lado, 2);
+                    System.out.println("area del cuadrado: " + areaCuadrado);
+                    break;
+
+                case 3:
+                    //Area triangulo
+                    System.out.print("Ingrese la base del triangulo: ");
+                    double base = scanner.nextDouble();
+                    System.out.print("Ingrese la altura del triangulo: ");
+                    double altura = scanner.nextDouble();
+                    double areaTriangulo = (base * altura) / 2;
+                    System.out.println("area del triangulo: " + areaTriangulo);
+                    break;
+
+                case 4:
+                    //Factorial
+                    System.out.print("Ingrese un numero entero: ");
+                    int numero = scanner.nextInt();
+                    long factorial = 1;
+                    for (int i = 1; i <= numero; i++) {
+                        factorial *= i;
+                    }
+                    System.out.println("El factorial de " + numero + " es: " + factorial);
+                    break;
+
+                case 5:
+                    //par o impar
+                    System.out.print("Ingrese un numero: ");
+                    int numParImpar = scanner.nextInt();
+                    if (numParImpar % 2 == 0) {
+                        System.out.println(numParImpar + " es par.");
+                    } else {
+                        System.out.println(numParImpar + " es impar.");
+                    }
+                    break;
+
+                case 6:
+                    //positivo, negativo o cero
+                    System.out.print("Ingrese un numero: ");
+                    int numSigno = scanner.nextInt();
+                    if (numSigno > 0) {
+                        System.out.println(numSigno + " es positivo.");
+                    } else if (numSigno < 0) {
+                        System.out.println(numSigno + " es negativo.");
+                    } else {
+                        System.out.println("El numero es cero.");
+                    }
+                    break;
+
+                case 7:
+                    //Suma de todos los numeros
+                    System.out.print("Ingrese un numero: ");
+                    int numSuma = scanner.nextInt();
+                    int suma = 0;
+                    for (int i = 1; i <= numSuma; i++) {
+                        suma += i;
+                    }
+                    System.out.println("La suma de los numeros desde 1 hasta " + numSuma + " es: " + suma);
+                    break;
+
+                case 8:
+                    // Salir
+                    System.out.println("Hasta luego!");
+                    break;
+
+                default:
+                    System.out.println("Opcion no valida, favor ingresar de nuevo.");
+            }
+            System.out.println();
+        } while (opcion != 8);
+
+        scanner.close();
+    }
+}
